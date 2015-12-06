@@ -20,7 +20,7 @@ public class CarPriceCalculatorTest {
     @Test
     public void hummerHasAPollutionTax() {
         final int hummerPrice = 50000;
-        Car hummer = createCarMock(Hummer.class, hummerPrice);
+        Car hummer = createCarMock(Hummer.class, hummerPrice, POLLUTION_TAX);
 
         int totalPrice = calculator.calculatePrice(hummer);
 
@@ -30,16 +30,17 @@ public class CarPriceCalculatorTest {
     @Test
     public void yarisHasNoPollutionTax() {
         final int yarisPrice = 20000;
-        Car yaris = createCarMock(Yaris.class, yarisPrice);
+        Car yaris = createCarMock(Yaris.class, yarisPrice, 0);
 
         int totalPrice = calculator.calculatePrice(yaris);
 
         assertEquals(yarisPrice, totalPrice);
     }
 
-    private Car createCarMock(Class<? extends Car> carType, int price) {
+    private Car createCarMock(Class<? extends Car> carType, int price, int pollutionTax) {
         Car carMock = mock(carType);
         willReturn(price).given(carMock).getPrice();
+        willReturn(pollutionTax).given(carMock).calculatePolutionTax();
         return carMock;
     }
 

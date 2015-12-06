@@ -7,7 +7,7 @@ public class HumanResourcesService {
 
     private final static int HOURS_PER_WEEK = 35;
 
-    public void payCurrentWeek(Person person) {
+    public void payCurrentWeek(Payable person) {
         int rawSalary = person.calculateSalary(HOURS_PER_WEEK);
         int netSalary = removeTaxes(rawSalary);
         person.sendCheck(netSalary);
@@ -17,7 +17,7 @@ public class HumanResourcesService {
         return rawSalary / 2;
     }
 
-    public void fire(Person person) {
+    public void fire(Fireable person) {
         person.fire();
         removeFromPayroll();
     }
@@ -26,7 +26,7 @@ public class HumanResourcesService {
         // Not implement, not important for this example.
     }
 
-    public void payBonus(Person person, int amount) {
+    public void payBonus(Payable person, int amount) {
         person.sendCheck(amount);
     }
 

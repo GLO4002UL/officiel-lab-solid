@@ -4,4 +4,6 @@ public interface Car {
 
     int getPrice();
 
+    int calculatePolutionTax();
+
 }

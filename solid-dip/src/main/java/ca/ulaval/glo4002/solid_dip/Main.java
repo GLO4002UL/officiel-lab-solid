@@ -27,7 +27,7 @@ public class Main {
         ruby.name = "Ruby is cool too!";
         ruby.description = "Yay!";
 
-        ConferencesRepository repository = new ConferencesRepository();
+        ConferencesRepository repository = new LinkedListConferencesRepository();
         repository.persist(javascript);
         repository.persist(ruby);
 

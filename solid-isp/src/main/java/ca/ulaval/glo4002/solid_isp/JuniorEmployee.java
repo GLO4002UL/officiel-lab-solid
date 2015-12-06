@@ -1,6 +1,6 @@
 package ca.ulaval.glo4002.solid_isp;
 
-public class JuniorEmployee implements Person {
+public class JuniorEmployee implements Payable, Fireable {
 
     private final static int HOURLY_WAGE = 30;
 
